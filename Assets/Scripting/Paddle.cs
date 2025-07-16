@@ -8,7 +8,7 @@ public class Paddle : MonoBehaviour
 {
     public PlayerType CurrentPlayer;
     public float Speed = 10f;
-    public float Boundary = 4f;
+    public float d = 4f;
 
     [SerializeField] private InputAction moveInput;
     private float moveDirection;
@@ -44,7 +44,7 @@ public class Paddle : MonoBehaviour
         float movement = this.moveDirection * Speed * Time.deltaTime;
         transform.Translate(0f, movement, 0f);
 
-        float clampedY = Mathf.Clamp(transform.position.y, -Boundary, Boundary);
+        float clampedY = Mathf.Clamp(transform.position.y, -d, d);
         transform.position = new Vector3(transform.position.x, clampedY, 0f);
     }
 }
