@@ -13,7 +13,7 @@ public class Ball : MonoBehaviour
     }
 
     [SerializeField] private float speed = 8f;
-    [SerializeField] private List<string> scoreWallTag;
+    [SerializeField] private List<string> tags;
     private Vector2 moveDirection;
 
     [SerializeField] private AudioSource aS;
@@ -42,21 +42,21 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(scoreWallTag[(int) ColisionTag.ScoreWallLeft]))
-        {
-            ResetBall();
-            GameManager.IncrementScore(PlayerType.Player1);
-        }
-        if (other.CompareTag(scoreWallTag[(int)ColisionTag.ScoreWallRight]))
+        if (other.CompareTag(tags[(int) ColisionTag.ScoreWallLeft]))
         {
             ResetBall();
             GameManager.IncrementScore(PlayerType.Player2);
         }
-        else if (other.CompareTag(scoreWallTag[(int)ColisionTag.BounceWall]))
+        else if (other.CompareTag(tags[(int)ColisionTag.ScoreWallRight]))
+        {
+            ResetBall();
+            GameManager.IncrementScore(PlayerType.Player1);
+        }
+        else if (other.CompareTag(tags[(int)ColisionTag.BounceWall]))
         {
             moveDirection.y = -moveDirection.y;
         }
-        else if (other.CompareTag("Player"))
+        else if (other.CompareTag(tags[(int)ColisionTag.Player]))
         {
             moveDirection.x = -moveDirection.x;
             moveDirection.y = transform.position.y - other.transform.position.y;
