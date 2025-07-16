@@ -618,17 +618,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9069397689223ff47b4b2c1f907cb265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerType: 0
-  s: 10
-  d: 4
-  ia:
-    m_Name: Ia
+  CurrentPlayer: 0
+  Speed: 10
+  Boundary: 4
+  moveInput:
+    m_Name: Move Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 45f6577c-fe18-4e52-81b3-97fbb7578ab1
+    m_Id: b6094354-256c-4edf-9275-c36f7fd1ffab
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: 93f44b4c-ea42-4493-bb3c-8fa93eb3648c
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 2fe73cb2-3bdf-4487-b7cd-03a4c5593d82
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 5e2b7c06-c5c2-4678-bbad-40c8b15a310a
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 8
     m_Flags: 0
 --- !u!61 &417015234
 BoxCollider2D:
@@ -1259,17 +1283,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9069397689223ff47b4b2c1f907cb265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerType: 1
-  s: 10
-  d: 4
-  ia:
-    m_Name: Ia
+  CurrentPlayer: 0
+  Speed: 10
+  Boundary: 4
+  moveInput:
+    m_Name: Move Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 0091a13a-ccde-43fa-b586-ac10d7ba8fe2
+    m_Id: 78299bd4-2537-4ca2-84ce-1b9f3b6793e4
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: 0cdcab8f-e94e-48f9-92b0-0f0e127b2cb2
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: ca5eaa5b-a522-470a-a3de-76cb09aae066
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 74fda2fe-3a19-4914-9a46-b6530fd0297a
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 8
     m_Flags: 0
 --- !u!61 &710828498
 BoxCollider2D:
@@ -1329,7 +1377,7 @@ GameObject:
   - component: {fileID: 750163710}
   - component: {fileID: 750163709}
   m_Layer: 0
-  m_Name: Player2Score
+  m_Name: Player's1Goal
   m_TagString: ScoreWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1924,7 +1972,7 @@ GameObject:
   - component: {fileID: 1014225937}
   - component: {fileID: 1014225936}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ScoreBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3032,7 +3080,7 @@ GameObject:
   - component: {fileID: 1890164553}
   - component: {fileID: 1890164552}
   m_Layer: 0
-  m_Name: Player1Score
+  m_Name: Player's2Goal
   m_TagString: ScoreWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3253,7 +3301,7 @@ GameObject:
   - component: {fileID: 2057140519}
   - component: {fileID: 2057140518}
   m_Layer: 5
-  m_Name: Score
+  m_Name: Player's2Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3476,7 +3524,7 @@ GameObject:
   - component: {fileID: 2144249600}
   - component: {fileID: 2144249599}
   m_Layer: 5
-  m_Name: Score
+  m_Name: Player's1Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
