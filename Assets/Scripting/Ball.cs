@@ -3,9 +3,16 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    private enum ColisionTag
+    {
+        ScoreWallLeft,
+        ScoreWallRight,
+        BounceWall,
+        Player
+    }
+
     [SerializeField] private float speed = 8f;
-    [SerializeField] private List<string> tags;
-    [SerializeField] private string otherTag;
+    [SerializeField] private List<string> scoreWallTag;
     private Vector2 moveDirection;
 
     [SerializeField] private AudioSource aS;
