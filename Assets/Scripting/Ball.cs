@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
@@ -30,18 +31,28 @@ public class Ball : MonoBehaviour
         transform.Translate(moveDirection * speed * Time.deltaTime);
     }
 
+    /// <summary>
+    /// When the ball hits either Player's 1 or Player's 2 goal, reset the ball to 0, 0, 0 and send the ball into a random direction.
+    /// </summary>
     private void ResetBall()
     {
         transform.position = Vector2.zero;
         moveDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(tags[0]))
+        if (other.CompareTag(scoreWallTag[(int) ColisionTag.ScoreWallLeft]))
         {
             ResetBall();
+            GameManager.IncrementScore(PlayerType.Player1);
         }
-        else if (other.CompareTag(otherTag))
+        if (other.CompareTag(scoreWallTag[(int)ColisionTag.ScoreWallRight]))
+        {
+            ResetBall();
+            GameManager.IncrementScore(PlayerType.Player2);
+        }
+        else if (other.CompareTag(scoreWallTag[(int)ColisionTag.BounceWall]))
         {
             moveDirection.y = -moveDirection.y;
         }
