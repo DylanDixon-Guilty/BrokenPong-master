@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 277591916}
   - component: {fileID: 277591915}
   m_Layer: 0
-  m_Name: Audio
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1376,6 +1376,7 @@ GameObject:
   - component: {fileID: 750163711}
   - component: {fileID: 750163710}
   - component: {fileID: 750163709}
+  - component: {fileID: 750163712}
   m_Layer: 0
   m_Name: Player's1Goal
   m_TagString: ScoreWall
@@ -1499,6 +1500,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1823548398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &750163712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750163708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b188929253d724b882c811bec11f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoringPlayer: 1
 --- !u!1 &818121079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,10 +2317,10 @@ MonoBehaviour:
   - ScoreWall
   - BounceWall
   - Player
-  aS: {fileID: 277591915}
-  clip1: {fileID: 8300000, guid: 89ac86caef9822742bf80949d63e7186, type: 3}
-  clip2: {fileID: 0}
-  clip3: {fileID: 0}
+  audioManager: {fileID: 0}
+  pongPlayerCollide: {fileID: 0}
+  pongWallCollide: {fileID: 0}
+  pongScore: {fileID: 0}
 --- !u!50 &1368952081
 Rigidbody2D:
   serializedVersion: 5
@@ -3081,6 +3095,7 @@ GameObject:
   - component: {fileID: 1890164554}
   - component: {fileID: 1890164553}
   - component: {fileID: 1890164552}
+  - component: {fileID: 1890164555}
   m_Layer: 0
   m_Name: Player's2Goal
   m_TagString: ScoreWall
@@ -3204,6 +3219,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1823548398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1890164555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890164551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b188929253d724b882c811bec11f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoringPlayer: 0
 --- !u!1 &2019126693
 GameObject:
   m_ObjectHideFlags: 0
