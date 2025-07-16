@@ -19,9 +19,15 @@ public class GameManager : MonoBehaviour
 
     public static void IncrementScore(PlayerType playerType)
     {
-        if (instance == null) return;
-        
-        if (instance.playerScoreTexts.Count <= (int) playerType) return;
+        if (instance == null)
+        {
+            return;
+        }
+
+        if (instance.playerScoreTexts.Count <= (int)playerType)
+        {
+            return;
+        }
         
         instance.playerScores[(int) playerType]++;
         TextMeshProUGUI scoreText = instance.playerScoreTexts[(int)playerType];
