@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private float x = 8f;
+    [SerializeField] private float speed = 8f;
     [SerializeField] private List<string> tags;
     [SerializeField] private string otherTag;
-    private Vector2 v;
+    private Vector2 moveDirection;
 
     [SerializeField] private AudioSource aS;
     [SerializeField] private AudioClip clip1;
@@ -15,18 +15,18 @@ public class Ball : MonoBehaviour
     void Start()
     {
         transform.position = Vector2.zero;
-        v = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        moveDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
 
     void Update()
     {
-        transform.Translate(v * x * Time.deltaTime);
+        transform.Translate(moveDirection * speed * Time.deltaTime);
     }
 
     private void ResetBall()
     {
         transform.position = Vector2.zero;
-        v = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        moveDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -36,13 +36,13 @@ public class Ball : MonoBehaviour
         }
         else if (other.CompareTag(otherTag))
         {
-            v.y = -v.y;
+            moveDirection.y = -moveDirection.y;
         }
         else if (other.CompareTag("Player"))
         {
-            v.x = -v.x;
-            v.y = transform.position.y - other.transform.position.y;
-            v = v.normalized;
+            moveDirection.x = -moveDirection.x;
+            moveDirection.y = transform.position.y - other.transform.position.y;
+            moveDirection = moveDirection.normalized;
         }
     }
 }
