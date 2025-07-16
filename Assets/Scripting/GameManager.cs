@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+    /// <summary>
+    /// When the ball enters either Player's goal, increase the score by 1 to the player who scored
+    /// </summary>
     public static void IncrementScore(PlayerType playerType)
     {
         if (instance == null)
