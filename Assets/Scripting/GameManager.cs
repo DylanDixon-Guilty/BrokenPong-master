@@ -17,14 +17,14 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    public static void IncrementScore(PlayerType playerType)
+    public void IncrementScore(PlayerType playerType)
     {
         if (instance == null)
         {
             return;
         }
-
-        if (instance.playerScoreTexts.Count <= (int)playerType)
+        
+        if (instance.playerScoreTexts.Count <= (int) playerType)
         {
             return;
         }
