@@ -6,8 +6,7 @@ public class Ball : MonoBehaviour
 {
     private enum ColisionTag
     {
-        ScoreWallLeft,
-        ScoreWallRight,
+        ScoreWall,
         BounceWall,
         Player
     }
@@ -16,10 +15,10 @@ public class Ball : MonoBehaviour
     [SerializeField] private List<string> tags;
     private Vector2 moveDirection;
 
-    [SerializeField] private AudioSource aS;
-    [SerializeField] private AudioClip clip1;
-    [SerializeField] private AudioClip clip2;
-    [SerializeField] private AudioClip clip3;
+    [SerializeField] private AudioSource audioManager;
+    [SerializeField] private AudioClip pongPlayerCollide;
+    [SerializeField] private AudioClip pongWallCollide;
+    [SerializeField] private AudioClip pongScore;
     void Start()
     {
         transform.position = Vector2.zero;
@@ -32,7 +31,7 @@ public class Ball : MonoBehaviour
     }
 
     /// <summary>
-    /// When the ball hits either Player's 1 or Player's 2 goal, reset the ball to 0, 0, 0 and send the ball into a random direction.
+    /// When the ball hits either Player's 1 or Player's 2 goal, the ball will reset to 0, 0, 0 and send the ball into a random direction.
     /// </summary>
     private void ResetBall()
     {
@@ -42,15 +41,10 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(tags[(int) ColisionTag.ScoreWallLeft]))
+        if (other.CompareTag(tags[(int)ColisionTag.ScoreWall]))
         {
             ResetBall();
-            GameManager.IncrementScore(PlayerType.Player2);
-        }
-        else if (other.CompareTag(tags[(int)ColisionTag.ScoreWallRight]))
-        {
-            ResetBall();
-            GameManager.IncrementScore(PlayerType.Player1);
+            GameManager.IncrementScore(other.GetComponent<ScoreWall>().ScoringPlayer);
         }
         else if (other.CompareTag(tags[(int)ColisionTag.BounceWall]))
         {

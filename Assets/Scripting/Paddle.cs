@@ -2,7 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum PlayerType { Player1, Player2 }
+public enum PlayerType 
+{ 
+    Player1, 
+    Player2 
+}
 
 public class Paddle : MonoBehaviour
 {

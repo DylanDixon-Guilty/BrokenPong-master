@@ -281,8 +281,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 89ac86caef9822742bf80949d63e7186, type: 3}
-  m_Resource: {fileID: 8300000, guid: 89ac86caef9822742bf80949d63e7186, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1378,7 +1378,7 @@ GameObject:
   - component: {fileID: 750163709}
   m_Layer: 0
   m_Name: Player's1Goal
-  m_TagString: ScoreWallLeft
+  m_TagString: ScoreWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2300,11 +2300,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   tags:
-  - ScoreWallLeft
-  - ScoreWallRight
+  - ScoreWall
   - BounceWall
+  - Player
   aS: {fileID: 277591915}
-  clip1: {fileID: 0}
+  clip1: {fileID: 8300000, guid: 89ac86caef9822742bf80949d63e7186, type: 3}
   clip2: {fileID: 0}
   clip3: {fileID: 0}
 --- !u!50 &1368952081
@@ -3083,7 +3083,7 @@ GameObject:
   - component: {fileID: 1890164552}
   m_Layer: 0
   m_Name: Player's2Goal
-  m_TagString: ScoreWallRight
+  m_TagString: ScoreWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
