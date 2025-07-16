@@ -43,15 +43,18 @@ public class Ball : MonoBehaviour
     {
         if (other.CompareTag(tags[(int)ColisionTag.ScoreWall]))
         {
+            audioManager.PlayOneShot(pongScore);
             ResetBall();
             GameManager.IncrementScore(other.GetComponent<ScoreWall>().ScoringPlayer);
         }
         else if (other.CompareTag(tags[(int)ColisionTag.BounceWall]))
         {
             moveDirection.y = -moveDirection.y;
+            audioManager.PlayOneShot(pongWallCollide);
         }
         else if (other.CompareTag(tags[(int)ColisionTag.Player]))
         {
+            audioManager.PlayOneShot(pongPlayerCollide);
             moveDirection.x = -moveDirection.x;
             moveDirection.y = transform.position.y - other.transform.position.y;
             moveDirection = moveDirection.normalized;

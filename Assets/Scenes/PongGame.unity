@@ -284,13 +284,13 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1378,7 +1378,7 @@ GameObject:
   - component: {fileID: 750163709}
   - component: {fileID: 750163712}
   m_Layer: 0
-  m_Name: Player's1Goal
+  m_Name: Player's2Goal
   m_TagString: ScoreWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2317,10 +2317,10 @@ MonoBehaviour:
   - ScoreWall
   - BounceWall
   - Player
-  audioManager: {fileID: 0}
-  pongPlayerCollide: {fileID: 0}
-  pongWallCollide: {fileID: 0}
-  pongScore: {fileID: 0}
+  audioManager: {fileID: 277591915}
+  pongPlayerCollide: {fileID: 8300000, guid: 89ac86caef9822742bf80949d63e7186, type: 3}
+  pongWallCollide: {fileID: 8300000, guid: 9c4744d1fb88f9c4d91c333d8cc1bb16, type: 3}
+  pongScore: {fileID: 8300000, guid: 60b1630540cc88449aaf70f2532ce857, type: 3}
 --- !u!50 &1368952081
 Rigidbody2D:
   serializedVersion: 5
@@ -3097,7 +3097,7 @@ GameObject:
   - component: {fileID: 1890164552}
   - component: {fileID: 1890164555}
   m_Layer: 0
-  m_Name: Player's2Goal
+  m_Name: Player's1Goal
   m_TagString: ScoreWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
