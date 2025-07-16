@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    public void IncrementScore(PlayerType playerType)
+    public static void IncrementScore(PlayerType playerType)
     {
         if (instance == null)
         {
