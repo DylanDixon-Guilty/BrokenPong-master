@@ -2317,10 +2317,10 @@ MonoBehaviour:
   - ScoreWall
   - BounceWall
   - Player
-  audioManager: {fileID: 277591915}
-  pongPlayerCollide: {fileID: 8300000, guid: 89ac86caef9822742bf80949d63e7186, type: 3}
-  pongWallCollide: {fileID: 8300000, guid: 9c4744d1fb88f9c4d91c333d8cc1bb16, type: 3}
-  pongScore: {fileID: 8300000, guid: 60b1630540cc88449aaf70f2532ce857, type: 3}
+  audioPlayer: {fileID: 277591915}
+  playerCollideAudio: {fileID: 8300000, guid: 89ac86caef9822742bf80949d63e7186, type: 3}
+  wallCollideAudio: {fileID: 8300000, guid: 9c4744d1fb88f9c4d91c333d8cc1bb16, type: 3}
+  scoreAudio: {fileID: 8300000, guid: 60b1630540cc88449aaf70f2532ce857, type: 3}
 --- !u!50 &1368952081
 Rigidbody2D:
   serializedVersion: 5
