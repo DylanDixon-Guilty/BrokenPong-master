@@ -15,10 +15,10 @@ public class Ball : MonoBehaviour
     [SerializeField] private List<string> tags;
     private Vector2 moveDirection;
 
-    [SerializeField] private AudioSource audioManager;
-    [SerializeField] private AudioClip pongPlayerCollide;
-    [SerializeField] private AudioClip pongWallCollide;
-    [SerializeField] private AudioClip pongScore;
+    [SerializeField] private AudioSource audioPlayer;
+    [SerializeField] private AudioClip playerCollideAudio;
+    [SerializeField] private AudioClip wallCollideAudio;
+    [SerializeField] private AudioClip scoreAudio;
     void Start()
     {
         transform.position = Vector2.zero;
@@ -43,18 +43,18 @@ public class Ball : MonoBehaviour
     {
         if (other.CompareTag(tags[(int)ColisionTag.ScoreWall]))
         {
-            audioManager.PlayOneShot(pongScore);
+            audioPlayer.PlayOneShot(scoreAudio);
             ResetBall();
             GameManager.IncrementScore(other.GetComponent<ScoreWall>().ScoringPlayer);
         }
         else if (other.CompareTag(tags[(int)ColisionTag.BounceWall]))
         {
             moveDirection.y = -moveDirection.y;
-            audioManager.PlayOneShot(pongWallCollide);
+            audioPlayer.PlayOneShot(wallCollideAudio);
         }
         else if (other.CompareTag(tags[(int)ColisionTag.Player]))
         {
-            audioManager.PlayOneShot(pongPlayerCollide);
+            audioPlayer.PlayOneShot(playerCollideAudio);
             moveDirection.x = -moveDirection.x;
             moveDirection.y = transform.position.y - other.transform.position.y;
             moveDirection = moveDirection.normalized;
